@@ -1,0 +1,172 @@
+/* Reset & base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Navbar */
+.navbar {
+    background: #1a237e;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links li a:hover {
+    color: #ffeb3b;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #ff5722;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #e64a19;
+}
+
+/* Section styling */
+.section {
+    padding: 3rem 0;
+}
+
+/* Upload Box */
+#dropZone {
+    border: 2px dashed #aaa;
+    padding: 40px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#dropZone.dragover {
+    background-color: #e3f2fd;
+    border-color: #1976d2;
+}
+
+button {
+    padding: 12px 20px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0d47a1;
+}
+
+#fileList {
+    list-style: none;
+    margin-top: 10px;
+    text-align: left;
+}
+
+#fileList li {
+    background: #e8f0fe;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Progress Bar */
+.progress {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #4caf50;
+    transition: width 0.3s;
+    border-radius: 5px;
+}
+
+/* Results */
+.results-section ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.results-section li {
+    background: #c8e6c9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    background: #263238;
+    color: #ccc;
+    text-align: center;
+    padding: 1.5rem 0;
+}

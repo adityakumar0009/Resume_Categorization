@@ -1,27 +1,28 @@
-/* Reset & base styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f7f9fc;
-    color: #333;
-    line-height: 1.6;
-}
-
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Navbar */
 .navbar {
-    background: #1a237e;
-    padding: 1rem 0;
+    width: 100%;
+    background: #111827;
+    padding: 18px 0;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #06b6d4;
 }
 
 .nav-container {
@@ -30,143 +31,116 @@ body {
     align-items: center;
 }
 
-.logo {
-    color: #fff;
-    font-size: 1.5rem;
-}
-
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 25px;
 }
 
-.nav-links li a {
-    color: #fff;
+.nav-links a {
     text-decoration: none;
-    font-weight: bold;
+    color: #e5e7eb;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-.nav-links li a:hover {
-    color: #ffeb3b;
+.nav-links a:hover {
+    color: #06b6d4;
 }
 
-/* Hero */
+/* Hero Section */
 .hero {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: white;
-    padding: 4rem 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+        url('https://images.unsplash.com/photo-1521791136064-7986c2920216') no-repeat center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
     text-align: center;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background: #ff5722;
     color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
 }
 
-.btn:hover {
-    background: #e64a19;
-}
-
-/* Section styling */
-.section {
-    padding: 3rem 0;
-}
-
-/* Upload Box */
-#dropZone {
-    border: 2px dashed #aaa;
-    padding: 40px;
-    background-color: #fff;
-    text-align: center;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
+.hero-content h2 {
+    font-size: 42px;
     margin-bottom: 20px;
 }
 
-#dropZone.dragover {
-    background-color: #e3f2fd;
-    border-color: #1976d2;
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
 }
 
-button {
-    padding: 12px 20px;
-    background: #1976d2;
+.btn {
+    padding: 12px 25px;
+    background: #06b6d4;
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0891b2;
+}
+
+/* Sections */
+.section {
+    padding: 60px 0;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+    color: #111827;
+}
+
+/* Upload Zone */
+#dropZone {
+    border: 2px dashed #06b6d4;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background 0.3s;
+    margin-bottom: 20px;
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #0d47a1;
+#dropZone.dragover {
+    background: #e0f7fc;
+    border-color: #0891b2;
 }
 
-#fileList {
+#fileList li,
+#results li {
     list-style: none;
-    margin-top: 10px;
-    text-align: left;
-}
-
-#fileList li {
-    background: #e8f0fe;
-    margin-bottom: 5px;
     padding: 10px;
-    border-radius: 4px;
+    background: #f3f4f6;
+    margin-top: 8px;
+    border-radius: 6px;
 }
 
 /* Progress Bar */
 .progress {
     width: 100%;
-    height: 10px;
-    background: #ddd;
+    height: 8px;
+    background: #e5e7eb;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .progress-bar {
-    height: 100%;
+    height: 8px;
+    background: #06b6d4;
     width: 0%;
-    background: #4caf50;
-    transition: width 0.3s;
     border-radius: 5px;
-}
-
-/* Results */
-.results-section ul {
-    list-style: none;
-    margin-top: 20px;
-}
-
-.results-section li {
-    background: #c8e6c9;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 8px;
 }
 
 /* Footer */
 footer {
-    background: #263238;
-    color: #ccc;
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 20px;
+    background: #111827;
+    color: #d1d5db;
 }

@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume Categorization</title>
+  <title>Resume Categorization | ResumeAI</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
+
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <h1 class="logo">ResumeAI</h1>
+      <h1 class="logo">Resume<span>AI</span></h1>
+
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -22,10 +31,10 @@
 
   <!-- Hero Section -->
   <header class="hero">
-    <div class="container">
+    <div class="container hero-content">
       <h2>AI-Powered Resume Categorization</h2>
-      <p>Streamline your hiring process by uploading and classifying resumes with artificial intelligence.</p>
-      <a href="#upload" class="btn">Upload Now</a>
+      <p>Upload resumes and let artificial intelligence classify candidates into roles instantly.</p>
+      <a href="#upload" class="btn">Start Uploading</a>
     </div>
   </header>
 
@@ -33,18 +42,23 @@
   <section id="about" class="section">
     <div class="container">
       <h2>About This Project</h2>
-      <p>This application uses advanced machine learning techniques to classify resumes into different job roles such as Data Scientist, Web Developer, and more. It's a fast and accurate way to shortlist candidates.</p>
+      <p>This application uses machine learning to categorize resumes into roles such as Data Scientist, Web Developer,
+        AI Engineer, and more. It provides quick, automated shortlisting for efficient hiring.</p>
     </div>
   </section>
 
   <!-- Upload Section -->
-  <section class="upload-section section" id="upload">
+  <section id="upload" class="upload-section section">
     <div class="container">
       <h2>Upload Resumes</h2>
+
       <div id="dropZone">📄 Drag & Drop Resumes Here or Click to Browse</div>
       <input type="file" id="fileInput" multiple hidden />
+
       <ul id="fileList"></ul>
-      <button onclick="uploadFiles()">Upload & Categorize</button>
+
+      <button onclick="uploadFiles()" class="btn btn-upload">Upload & Categorize</button>
+
       <div class="progress">
         <div class="progress-bar" id="progressBar"></div>
       </div>
@@ -52,7 +66,7 @@
   </section>
 
   <!-- Results Section -->
-  <section class="results-section section" id="results">
+  <section id="results" class="results-section section">
     <div class="container">
       <h2>Categorization Results</h2>
       <ul id="results"></ul>
@@ -62,10 +76,12 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 ResumeAI Project | Made with ❤️ using Flask</p>
+      <p>&copy; 2025 ResumeAI | Made with ❤️ using Flask</p>
     </div>
   </footer>
 
+
+  <!-- JS -->
   <script>
     const dropZone = document.getElementById("dropZone");
     const fileInput = document.getElementById("fileInput");
@@ -123,15 +139,19 @@
         .then((data) => {
           let resultList = document.getElementById("results");
           resultList.innerHTML = "";
+
           data.forEach((resume) => {
             let li = document.createElement("li");
             li.innerText = `📄 ${resume.filename} → 🧠 ${resume.category}`;
             resultList.appendChild(li);
           });
+
           progressBar.style.width = "100%";
         })
         .catch((error) => console.error("Error:", error));
     }
   </script>
+
 </body>
+
 </html>
