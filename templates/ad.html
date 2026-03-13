@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Categorization System | Final Year Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <h1 class="logo">Resume<span>AI</span></h1>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#howitworks">How It Works</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h2>AI-Powered Resume Categorization System</h2>
+            <p>
+                A smart and automated solution to analyze and classify resumes using Machine Learning and Natural
+                Language
+                Processing (NLP).
+                Ideal for HR teams, recruitment professionals, and organizations handling a high volume of job
+                applications.
+            </p>
+            <a href="#upload" class="btn hero-btn">Start Uploading</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About This Project</h2>
+            <p class="section-text">
+                The <strong>Resume Categorization System</strong> is an AI-driven final-year engineering project
+                designed to
+                simplify the recruitment process.
+                Using advanced NLP techniques, the system scans resumes, extracts important keywords, analyzes
+                role-related
+                information, and classifies them into categories like:
+            </p>
+            <ul class="category-list">
+                <li>Data Scientist</li>
+                <li>Machine Learning Engineer</li>
+                <li>Software / Web Developer</li>
+                <li>Cloud / DevOps Engineer</li>
+                <li>Data Analyst</li>
+                <li>Cybersecurity Analyst</li>
+            </ul>
+
+            <p class="section-text">
+                This system helps companies reduce hiring time, improves accuracy, and eliminates manual resume
+                shortlisting.
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features-section">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>📄 Resume Parsing</h3>
+                    <p>Extracts skills, experience, education, projects, and important keywords from resumes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🧠 AI/ML Classification</h3>
+                    <p>Uses machine learning to assign each resume to the most appropriate job category.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>⚡ Fast Processing</h3>
+                    <p>Handles multiple resume uploads at once with fast and accurate results.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>☁ Flask Web Interface</h3>
+                    <p>Simple and user-friendly web UI built using Flask for interactive analysis.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>📊 Insights</h3>
+                    <p>Displays categorized job roles and important extracted information.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🔍 NLP Techniques</h3>
+                    <p>Implements TF-IDF, bag of words, tokenization, and vectorization techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="section upload-section">
+        <div class="container">
+            <h2 class="section-title">Upload Your Resumes</h2>
+            <p class="section-text">Upload single or multiple resumes in PDF/DOCX format. The system will analyze and
+                categorize them automatically.</p>
+
+            <div id="dropZone" class="drop-zone">
+                <div class="drop-icon">📄</div>
+                Drag & Drop Files Here <br> <small>or click to browse</small>
+            </div>
+
+            <input type="file" id="fileInput" multiple hidden />
+            <ul id="fileList" class="file-list"></ul>
+
+            <button class="btn upload-btn" onclick="uploadFiles()">Upload & Categorize</button>
+
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="section results-section">
+        <div class="container">
+            <h2 class="section-title">Categorization Results</h2>
+            <p class="section-text">Results will appear here after successful processing.</p>
+            <ul id="results" class="results-list"></ul>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="howitworks" class="section how-section">
+        <div class="container">
+            <h2 class="section-title">How the System Works</h2>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <h3>1️⃣ Upload Resume</h3>
+                    <p>Upload one or multiple files at once using drag & drop or browse.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>2️⃣ Text Extraction</h3>
+                    <p>The system reads the resume text using PDF readers / docx parsers.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>3️⃣ NLP Processing</h3>
+                    <p>Applies tokenization, TF-IDF vectorization, and keyword extraction.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>4️⃣ ML Classification</h3>
+                    <p>Predicts the most relevant job role using trained ML models.</p>
+                </div>
+
+                <div class="step-card">
+                    <h3>5️⃣ Display Results</h3>
+                    <p>Shows categorized output instantly with clear and readable UI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 ResumeAI | Final Year Project | Created using Flask, Python & Machine Learning</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript (same as before) -->
+    <script>
+        const dropZone = document.getElementById("dropZone");
+        const fileInput = document.getElementById("fileInput");
+        const fileList = document.getElementById("fileList");
+        const progressBar = document.getElementById("progressBar");
+
+        dropZone.addEventListener("click", () => fileInput.click());
+        dropZone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropZone.classList.add("dragover");
+        });
+        dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
+        dropZone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropZone.classList.remove("dragover");
+            fileInput.files = e.dataTransfer.files;
+            updateFileList();
+        });
+
+        fileInput.addEventListener("change", updateFileList);
+
+        function updateFileList() {
+            fileList.innerHTML = "";
+            const files = fileInput.files;
+            for (let file of files) {
+                let li = document.createElement("li");
+                li.textContent = file.name;
+                fileList.appendChild(li);
+            }
+        }
+
+        function uploadFiles() {
+            let files = fileInput.files;
+            let formData = new FormData();
+
+            if (files.length === 0) {
+                alert("Please select files first!");
+                return;
+            }
+
+            for (let i = 0; i < files.length; i++) {
+                formData.append("files[]", files[i]);
+            }
+
+            progressBar.style.width = "0%";
+
+            fetch("/upload", {
+                method: "POST",
+                body: formData,
+            })
+                .then(res => res.json())
+                .then(data => {
+                    let resultList = document.getElementById("results");
+                    resultList.innerHTML = "";
+                    data.forEach((resume) => {
+                        let li = document.createElement("li");
+                        li.innerHTML = `📄 <strong>${resume.filename}</strong> → <span class="result-tag">${resume.category}</span>`;
+                        resultList.appendChild(li);
+                    });
+                    progressBar.style.width = "100%";
+                })
+                .catch(err => console.error("Error:", err));
+        }
+    </script>
+
+</body>
+
+</html>

@@ -4,51 +4,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume Categorization</title>
+  <title>Resume Categorization System | Final Year Project</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
+
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
-      <h1 class="logo">ResumeAI</h1>
+      <h1 class="logo">Resume<span>AI</span></h1>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
         <li><a href="#upload">Upload</a></li>
-        <li><a href="#results">Results</a></li>
+        <li><a href="#results-section">Results</a></li>
+        <li><a href="#howitworks">How It Works</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <header class="hero">
-    <div class="container">
-      <h2>AI-Powered Resume Categorization</h2>
-      <p>Streamline your hiring process by uploading and classifying resumes with artificial intelligence.</p>
-      <a href="#upload" class="btn">Upload Now</a>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1>Resume Categorization System</h1>
+      <p class="hero-subtitle">
+        Automate your recruitment process with intelligent resume analysis, job-matching, and actionable insights.
+      </p>
+      <a href="#upload" class="btn hero-btn">Start Uploading Resumes</a>
     </div>
   </header>
 
   <!-- About Section -->
-  <section id="about" class="section">
+  <!-- About Section -->
+  <section id="about" class="section about-section">
     <div class="container">
-      <h2>About This Project</h2>
-      <p>This application uses advanced machine learning techniques to classify resumes into different job roles
-        such as Data Scientist, Web Developer, and more. It's a fast and accurate way to shortlist candidates.
+      <h2 class="section-title">About This Project</h2>
+  
+      <div class="about-cards">
+        <!-- Card 1 -->
+        <div class="about-card">
+          <div class="card-icon">🧠</div>
+          <h3>AI-Powered Analysis</h3>
+          <p>
+            Uses <strong>Machine Learning</strong> and <strong>Natural Language Processing</strong> to understand resumes,
+            extract skills, and identify relevant job roles automatically.
+          </p>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="about-card">
+          <div class="card-icon">⚡</div>
+          <h3>Fast & Efficient</h3>
+          <p>
+            Handles multiple resumes at once and reduces manual screening time drastically, helping HR teams focus on
+            qualified candidates.
+          </p>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="about-card">
+          <div class="card-icon">📊</div>
+          <h3>Actionable Insights</h3>
+          <p>
+            Provides ATS scores, job match results, and personalized improvement suggestions to make your recruitment
+            smarter and more accurate.
+          </p>
+        </div>
+      </div>
+  
+      <p class="section-text highlight">
+        This Resume Categorization System ensures that the right candidates are shortlisted quickly and efficiently,
+        improving hiring accuracy and overall productivity.
       </p>
     </div>
   </section>
 
-  <!-- Upload Section -->
-  <section class="upload-section section" id="upload">
+
+  <!-- Features Section -->
+  <section id="features" class="section features-section">
     <div class="container">
-      <h2>Upload Resumes</h2>
-      <div id="dropZone">📄 Drag & Drop Resumes Here or Click to Browse</div>
+      <h2 class="section-title">Key Features</h2>
+      <p class="section-text">Our system comes with a variety of powerful features to make recruitment smarter and
+        faster:</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3>📄 Resume Parsing</h3>
+          <p>Automatically extract skills, work experience, education, and project details from uploaded resumes.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🧠 AI/ML Classification</h3>
+          <p>Intelligently categorizes resumes into relevant job profiles using trained machine learning models.</p>
+        </div>
+        <div class="feature-card">
+          <h3>⚡ Fast Processing</h3>
+          <p>Supports bulk uploads and delivers instant analysis results for multiple resumes simultaneously.</p>
+        </div>
+        <div class="feature-card">
+          <h3>☁ Flask Web Interface</h3>
+          <p>User-friendly web interface with simple drag-and-drop functionality for easy interaction.</p>
+        </div>
+        <div class="feature-card">
+          <h3>📊 Insights & Reports</h3>
+          <p>Generates clear insights, ATS scores, job match results, and improvement suggestions for each resume.</p>
+        </div>
+        <div class="feature-card">
+          <h3>🔍 Advanced NLP Techniques</h3>
+          <p>Implements tokenization, vectorization, TF-IDF, and keyword extraction for accurate analysis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload Section -->
+  <section id="upload" class="section upload-section">
+    <div class="container">
+      <h2 class="section-title">Upload Your Resumes</h2>
+      <p class="section-text">Upload resumes in PDF or DOCX format. You can upload multiple files at once for faster
+        processing.</p>
+
+      <div id="dropZone" class="drop-zone">
+        <div class="drop-icon">📄</div>
+        Drag & Drop Files Here <br> <small>or click to browse</small>
+      </div>
+
       <input type="file" id="fileInput" multiple hidden />
-      <ul id="fileList"></ul>
-      <button onclick="uploadFiles()">Upload & Categorize</button>
+      <ul id="fileList" class="file-list"></ul>
+
+      <button class="btn upload-btn" onclick="uploadFiles()">Upload & Categorize</button>
+
       <div class="progress">
         <div class="progress-bar" id="progressBar"></div>
       </div>
@@ -56,35 +143,105 @@
   </section>
 
   <!-- Results Section -->
-  <section class="results-section section" id="results">
+  <section id="results-section" class="section results-section">
     <div class="container">
-      <h2>Categorization Results</h2>
-      <ul id="results"></ul>
+      <h2 class="section-title">Categorization Results</h2>
+      <p class="section-text">Once your resumes are analyzed, the categorized results will be displayed here.</p>
+      <ul id="results" class="results-list"></ul>
+    </div>
+  </section>
+
+  <!-- ATS Score Section -->
+  <section id="ats-score" class="section ats-section">
+    <div class="container">
+      <h2 class="section-title">ATS Score</h2>
+      <p class="section-text">The system calculates an <strong>Applicant Tracking System (ATS)</strong> score based on
+        skills, experience, and keyword matching.</p>
+      <div class="ats-card">
+        <h3>📊 ATS Compatibility Score</h3>
+        <p id="atsResult">Score will appear here...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Match Section -->
+  <section id="match" class="section match-section">
+    <div class="container">
+      <h2 class="section-title">Job Profile Match</h2>
+      <p class="section-text">Check if your resume matches the predicted job profile based on ATS analysis and ML
+        classification.</p>
+      <div class="match-card" id="matchCard">
+        <h3>🎯 Job Role Match Result</h3>
+        <p id="matchResult">Job match result will appear here...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Improvement Section -->
+  <section id="improve" class="section improve-section">
+    <div class="container">
+      <h2 class="section-title">Resume Improvement Suggestions</h2>
+      <p class="section-text">Get actionable suggestions to improve your resume for better ATS compatibility and job
+        match.</p>
+      <ul id="improveList" class="improve-list"></ul>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="howitworks" class="section how-section">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <h3>1️⃣ Upload Resume</h3>
+          <p>Drag and drop or browse to upload single or multiple resumes for analysis.</p>
+        </div>
+        <div class="step-card">
+          <h3>2️⃣ Text Extraction</h3>
+          <p>The system extracts text from PDFs or DOCX files and cleans it for processing.</p>
+        </div>
+        <div class="step-card">
+          <h3>3️⃣ NLP Analysis</h3>
+          <p>Applies tokenization, vectorization, and keyword extraction to understand the content.</p>
+        </div>
+        <div class="step-card">
+          <h3>4️⃣ ML Classification</h3>
+          <p>Uses trained machine learning models to predict the most suitable job role for each resume.</p>
+        </div>
+        <div class="step-card">
+          <h3>5️⃣ ATS & Job Match</h3>
+          <p>Calculates ATS score and determines if the resume matches the predicted role.</p>
+        </div>
+        <div class="step-card">
+          <h3>6️⃣ Suggestions</h3>
+          <p>Provides personalized recommendations to improve your resume for future submissions.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 ResumeAI Project | Made with ❤️ using Flask</p>
+      <p>© 2025 ResumeAI | Final Year Project | Built with Flask, Python & Machine Learning</p>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script>
     const dropZone = document.getElementById("dropZone");
     const fileInput = document.getElementById("fileInput");
     const fileList = document.getElementById("fileList");
     const progressBar = document.getElementById("progressBar");
+    const matchCard = document.getElementById("matchCard");
 
+    // Drag & Drop functionality
     dropZone.addEventListener("click", () => fileInput.click());
-
     dropZone.addEventListener("dragover", (e) => {
       e.preventDefault();
       dropZone.classList.add("dragover");
     });
-
     dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
-
     dropZone.addEventListener("drop", (e) => {
       e.preventDefault();
       dropZone.classList.remove("dragover");
@@ -105,38 +262,67 @@
     }
 
     function uploadFiles() {
-      let files = fileInput.files;
-      let formData = new FormData();
-
+      const files = fileInput.files;
       if (files.length === 0) {
         alert("Please select files first!");
         return;
       }
 
-      for (let i = 0; i < files.length; i++) {
-        formData.append("files[]", files[i]);
-      }
+      const formData = new FormData();
+      for (let file of files) formData.append("files[]", file);
 
       progressBar.style.width = "0%";
 
-      fetch("/upload", {
-        method: "POST",
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          let resultList = document.getElementById("results");
+      fetch("/upload", { method: "POST", body: formData })
+        .then(res => res.json())
+        .then(data => {
+          // Categorization Results
+          const resultList = document.getElementById("results");
           resultList.innerHTML = "";
-          data.forEach((resume) => {
-            let li = document.createElement("li");
-            li.innerText = `📄 ${resume.filename} → 🧠 ${resume.category}`;
-            resultList.appendChild(li);
-          });
+          if (data.resumes && data.resumes.length) {
+            data.resumes.forEach(resume => {
+              const li = document.createElement("li");
+              li.innerHTML = `📄 <strong>${resume.filename}</strong> → <span class="result-tag">${resume.category}</span>`;
+              resultList.appendChild(li);
+            });
+          } else resultList.innerHTML = "<li>No results found</li>";
+
+          // ATS Score
+          document.getElementById("atsResult").textContent = data.ats_score !== undefined ? data.ats_score + "%" : "N/A";
+
+          // Job Match
+          const matchResult = document.getElementById("matchResult");
+          matchResult.textContent = data.job_match || "N/A";
+          if (data.job_match && data.job_match.toLowerCase() === "matched") {
+            matchCard.classList.remove("not-match");
+          } else {
+            matchCard.classList.add("not-match");
+          }
+
+          // Resume Improvement Suggestions
+          const improveList = document.getElementById("improveList");
+          improveList.innerHTML = "";
+          if (data.suggestions && data.suggestions.length) {
+            data.suggestions.forEach(s => {
+              const li = document.createElement("li");
+              li.textContent = s;
+              improveList.appendChild(li);
+            });
+          } else {
+            const li = document.createElement("li");
+            li.textContent = "No suggestions available.";
+            improveList.appendChild(li);
+          }
+
           progressBar.style.width = "100%";
         })
-        .catch((error) => console.error("Error:", error));
+        .catch(err => {
+          console.error("Error:", err);
+          alert("Something went wrong during upload. Please try again.");
+        });
     }
   </script>
+
 </body>
 
 </html>
