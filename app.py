@@ -97,6 +97,7 @@ def upload_file():
     resumes = []
 
     for uploaded_file in uploaded_files:
+        MAX_FILE_SIZE_MB = 10
         if uploaded_file.filename.endswith('.pdf'):
             reader = PdfReader(uploaded_file)
             text = "".join([page.extract_text() for page in reader.pages if page.extract_text()])
