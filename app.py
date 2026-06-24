@@ -101,7 +101,20 @@ def upload_file():
             reader = PdfReader(uploaded_file)
             text = "".join([page.extract_text() for page in reader.pages if page.extract_text()])
             cleaned_resume = cleanResume(text)
-
+        
+        if uploaded_file.filename.endswith('.pdf'):
+            uploaded_file.seek(0, os.SEEK_END)
+            file_size = uploaded_file.tell()
+            uploaded_file.seek(0)
+            if file_size > 5 * 1024 * 1024:  # 5 MB
+                resumes.append({
+                    "filename": uploaded_file.filename,
+                    "category": "Rejected",
+                    "ats_score": 0,
+                    "suggestions": ["File size exceeds 5 MB limit."]
+                    })
+                continue
+        
             # ML categorization
             input_features = word_vector.transform([cleaned_resume])
             prediction_id = model.predict(input_features)[0]
